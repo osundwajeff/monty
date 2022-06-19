@@ -1,4 +1,4 @@
-include "monty.h"
+#include "monty.h"
 
 /**
  * push - pushes a node to the top of stack
@@ -31,4 +31,39 @@ void push(stack_t **stack, unsigned int nline)
 	if (*stack)
 		(*stack)->prev = new;
 	*stack = new;
+}
+
+/**
+ * pall - prints all values in stack starting from top
+ * @stack: pointer to the head node pointer of stack
+ * @nline: the line number
+ *
+ * Return: Nothing.
+ */
+void pall(stack_t **stack, unsigned int nline)
+{
+	stack_t *temp;
+	(void)nline;
+
+	temp = *stack;
+	while (temp)
+	{
+		printf("%d\n", temp->n);
+		temp = temp->next;
+	}
+}
+
+void free_stack(stack_t **stack)
+{
+	stack_t *temp = NULL;
+
+	if (stack == NULL || *stack == NULL)
+		return;
+
+	while (*stack != NULL)
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
+	}
 }
