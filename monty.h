@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdbool.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -68,6 +70,19 @@ typedef struct meta_s
 	FILE *file;
 } meta_t;
 
+/**
+ * struct line - contents of line and corresponding number
+ * @content: array of tokens read from the line
+ * @number: the line number
+ *
+ * Description: contents of a line and corresponding number
+ */
+typedef struct line
+{
+	unsigned int number;
+	char **content;
+} line_t;
+
 /* stack manipulation functions */
 void push(stack_t **stack, unsigned int nline);
 void pall(stack_t **stack, unsigned int nline);
@@ -76,12 +91,25 @@ void pint(stack_t **stack, unsigned int nline);
 void pop(stack_t **stack, unsigned int nline);
 void swap(stack_t **stack, unsigned int nline);
 void nop(stack_t **stack, unsigned int nline);
+void qpush(stack_t **stack, unsigned int nline);
 
 /* math operations */
-void add(stack_t **stack, unsigned int nline);
+void addop(stack_t **stack, unsigned int nline);
+void subop(stack_t **stack, unsigned int nline);
+void divop(stack_t **stack, unsigned int nline);
+void mulop(stack_t **stack, unsigned int nline);
+void modop(stack_t **stack, unsigned int nline);
 
 /* parse operations */
 void parsefile(FILE *file);
 void parseline(line_t *line, char *buffer);
+
+/* fucntion */
+void (*get_op_func(line_t line, meta_t *meta))(stack_t **, unsigned int);
+
+/* checker */
+bool comment_check(line_t line);
+void push_check(line_t line, meta_t *meta, char *opcode);
+bool argument_check(char *token);
 
 #endif /* MONTY_H */

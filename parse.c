@@ -1,5 +1,12 @@
+#include <stdio.h>
 #include "monty.h"
 
+/**
+ * parsefile - reads and parses file one line at a time
+ * @file: the script to be read
+ *
+ * Return: Nothing
+ */
 void parsefile(FILE *file)
 {
 	size_t size = 0;
