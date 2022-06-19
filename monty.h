@@ -107,6 +107,7 @@ void parseline(line_t *line, char *buffer);
 
 /* fucntion */
 void (*get_op_func(line_t line, meta_t *meta))(stack_t **, unsigned int);
+int _isalpha(int c);
 
 /* checker */
 bool comment_check(line_t line);
