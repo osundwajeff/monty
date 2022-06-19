@@ -93,6 +93,7 @@ void swap(stack_t **stack, unsigned int nline);
 void nop(stack_t **stack, unsigned int nline);
 void qpush(stack_t **stack, unsigned int nline);
 void pchar(stack_t **stack, unsigned int nline);
+void pstr(stack_t **stack, unsigned int nline);
 
 /* math operations */
 void addop(stack_t **stack, unsigned int nline);

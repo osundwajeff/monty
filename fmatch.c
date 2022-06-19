@@ -24,6 +24,7 @@ void (*get_op_func(line_t line, meta_t *meta))(stack_t **, unsigned int)
 		{"mul", mulop},
 		{"mod", modop},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 
