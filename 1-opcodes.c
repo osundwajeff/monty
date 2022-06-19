@@ -53,6 +53,12 @@ void pall(stack_t **stack, unsigned int nline)
 	}
 }
 
+/**
+ * free_stack - frees all nodes in a stack
+ * @stack: pointer to the head node pointer of stack
+ *
+ * Return: Nothing.
+ */
 void free_stack(stack_t **stack)
 {
 	stack_t *temp = NULL;

@@ -57,5 +57,11 @@ void push(stack_t **stack, unsigned int nline);
 void pall(stack_t **stack, unsigned int nline);
 void free_stack(stack_t **stack);
 void pint(stack_t **stack, unsigned int nline);
+void pop(stack_t **stack, unsigned int nline);
+void swap(stack_t **stack, unsigned int nline);
+void nop(stack_t **stack, unsigned int nline);
+
+/* math operations */
+void add(stack_t **stack, unsigned int nline);
 
 #endif /* MONTY_H */
