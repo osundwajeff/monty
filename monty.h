@@ -52,6 +52,22 @@ typedef struct arg_s
 
 extern arg_t arg; /* extern declaration */
 
+/**
+ * struct meta_s - structure
+ * @buf: buffer
+ * @stack: stack
+ * @file: file
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct meta_s
+{
+	char *buf;
+	stack_t *stack;
+	FILE *file;
+} meta_t;
+
 /* stack manipulation functions */
 void push(stack_t **stack, unsigned int nline);
 void pall(stack_t **stack, unsigned int nline);
@@ -63,5 +79,9 @@ void nop(stack_t **stack, unsigned int nline);
 
 /* math operations */
 void add(stack_t **stack, unsigned int nline);
+
+/* parse operations */
+void parsefile(FILE *file);
+void parseline(line_t *line, char *buffer);
 
 #endif /* MONTY_H */
